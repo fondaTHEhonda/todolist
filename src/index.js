@@ -1,5 +1,6 @@
 import {Task, TaskFolder} from "./app"
 import {newTaskForm, newFolderForm} from "./forms"
+import {sidebarLayout} from "./sidebarLayout"
 
 let testTask = Task('Test', "This is a test", "01/01/2022", "high", "");
 
