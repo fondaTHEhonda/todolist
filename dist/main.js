@@ -1,1 +1,1 @@
-console.log("test");
+(()=>{"use strict";const e=("Test","This is a test","01/01/2022","high",{getTitle:()=>"Test",getDesc:()=>"This is a test",getDueDate:()=>"01/01/2022",getPriority:()=>"high"});const t={folder:[],getTitle:()=>"Test Folder"};console.log(e.getTitle()),console.log(e.getDesc()),console.log(e.getDueDate()),console.log(e.getPriority()),console.log(t.folder),console.log(t.getTitle())})();
