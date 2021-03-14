@@ -1,11 +1,11 @@
 //Constructor for creating individual tasks. 
-const Task = (title, desc, dueDate, priority) => {
+const Task = (title, desc, dueDate, priority, folder) => {
     const getTitle = () => title;
     const getDesc = () => desc;
     const getDueDate = () => dueDate;
     const getPriority = () => priority;
 
-    return {getTitle, getDesc, getDueDate, getPriority}
+    return {getTitle, getDesc, getDueDate, getPriority, folder}
 }
 
 //Constructor for creating new folders to organize tasks.
