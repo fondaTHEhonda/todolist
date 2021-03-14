@@ -1,4 +1,5 @@
 import {Task, TaskFolder} from "./app"
+import {newTaskForm, newFolderForm} from "./forms"
 
 let testTask = Task('Test', "This is a test", "01/01/2022", "high", "");
 
@@ -13,3 +14,4 @@ console.log(testTask.getPriority());
 console.log(testTask.folder);
 console.log(newFolder.folder);
 console.log(newFolder.getTitle());
+
