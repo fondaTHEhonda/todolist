@@ -1,7 +1,7 @@
 import {Task, TaskFolder} from "./app"
 import {newTaskForm, newFolderForm} from "./forms"
 import {sidebarLayout} from "./sidebarLayout"
-import {openNewTaskForm} from "./eventlisteners"
+import {openNewTaskForm, closeNewTaskForm, openNewFolder, closeNewFolder} from "./eventlisteners"
 
 let testTask = Task('Test', "This is a test", "01/01/2022", "high", "");
 
@@ -17,4 +17,7 @@ console.log(testTask.folder);
 console.log(newFolder.folder);
 console.log(newFolder.getTitle());
 
-document.getElementById('create-new-task').addEventListener('click', openNewTaskForm);
+window.addEventListener('click', openNewTaskForm);
+window.addEventListener('click', closeNewTaskForm);
+window.addEventListener('click', openNewFolder);
+window.addEventListener('click', closeNewFolder);

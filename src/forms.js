@@ -71,7 +71,6 @@ const newTaskForm = (() => {
     taskCancelBtn.textContent = "Cancel";
     taskForm.appendChild(taskCancelBtn);
 
-
     formContainer.appendChild(taskForm);
 
     return document.getElementById("page-container").appendChild(formContainer);
@@ -103,8 +102,6 @@ const newFolderForm = (() => {
     folderForm.appendChild(folderCancelBtn);
 
     newFolderContainer.appendChild(folderForm);
-
-    newFolderContainer.style.display = "none";
 
     return document.getElementById("page-container").appendChild(newFolderContainer);
 })();
