@@ -23,6 +23,12 @@ const sidebarLayout = (() => {
     upcoming.classList.add('category-option');
     upcoming.textContent = "Upcoming";
     categoryList.appendChild(upcoming);
+
+    const completed = document.createElement('li');
+    completed.id = "completed-category";
+    completed.classList.add('category-option');
+    completed.textContent = "Completed";
+    categoryList.appendChild(completed);
     
     const projects = document.createElement('li');
     projects.id = "project-list";
