@@ -5,51 +5,51 @@ const newTaskForm = (() => {
     const taskForm = document.createElement('form');
     taskForm.id = "new-task-form";
 
-    let taskTitle = document.createElement('input');
+    const taskTitle = document.createElement('input');
     taskTitle.type = "text";
     taskTitle.placeholder = "New Task";
     taskTitle.classList.add("form-content");
     taskForm.appendChild(taskTitle);
 
-    let taskDesc = document.createElement('input');
+    const taskDesc = document.createElement('input');
     taskDesc.type = "text";
     taskDesc.placeholder = "Description";
     taskDesc.classList.add('form-content');
     taskForm.appendChild(taskDesc);
 
-    let taskDueDate = document.createElement("input");
+    const taskDueDate = document.createElement("input");
     taskDueDate.type = "date";
     taskDueDate.classList.add("form-content");
     taskForm.appendChild(taskDueDate);
 
-    let taskPriority = document.createElement('select');
+    const taskPriority = document.createElement('select');
     taskPriority.name = "priority";
     taskPriority.id = "priority-select";
     taskPriority.classList.add('form-content');
 
-    let highPriority = document.createElement("option");
+    const highPriority = document.createElement("option");
     highPriority.value = "high";
     highPriority.textContent = "High";
     taskPriority.appendChild(highPriority);
 
-    let mediumPriority = document.createElement('option');
+    const mediumPriority = document.createElement('option');
     mediumPriority.value = "medium";
     mediumPriority.textContent = "Medium";
     taskPriority.appendChild(mediumPriority);
 
-    let lowPriority = document.createElement("option");
+    const lowPriority = document.createElement("option");
     lowPriority.value = "low";
     lowPriority.textContent = "Low";
     taskPriority.appendChild(lowPriority);
 
     taskForm.appendChild(taskPriority);
 
-    let selectFolder = document.createElement('select');
+    const selectFolder = document.createElement('select');
     selectFolder.name = "folder";
     selectFolder.id = "folder-select";
     selectFolder.classList.add('form-content');
 
-    let testOption = document.createElement("option");
+    const testOption = document.createElement("option");
     testOption.value = "test";
     testOption.textContent = "Test";
     selectFolder.appendChild(testOption);
@@ -57,12 +57,20 @@ const newTaskForm = (() => {
     taskForm.appendChild(selectFolder);
 
 
-    let taskSubmitBtn = document.createElement("button");
+    const taskSubmitBtn = document.createElement("button");
     taskSubmitBtn.type = "submit";
     taskSubmitBtn.classList.add('form-content');
     taskSubmitBtn.id = "form-submit-btn";
     taskSubmitBtn.textContent = "Submit";
     taskForm.appendChild(taskSubmitBtn);
+
+    const taskCancelBtn = document.createElement('button');
+    taskCancelBtn.type = "button";
+    taskCancelBtn.classList.add('form-content');
+    taskCancelBtn.id = "form-cancel-btn";
+    taskCancelBtn.textContent = "Cancel";
+    taskForm.appendChild(taskCancelBtn);
+
 
     formContainer.appendChild(taskForm);
 
@@ -83,10 +91,20 @@ const newFolderForm = (() => {
 
     const folderSubmitBtn = document.createElement('button');
     folderSubmitBtn.type = "submit";
+    folderSubmitBtn.id = "folder-submit-btn";
     folderSubmitBtn.textContent = "Submit";
     folderForm.appendChild(folderSubmitBtn);
 
+    const folderCancelBtn = document.createElement('button');
+    folderCancelBtn.type = "button";
+    folderCancelBtn.classList.add('folder-form-content');
+    folderCancelBtn.id = "folder-cancel-btn";
+    folderCancelBtn.textContent = "Cancel";
+    folderForm.appendChild(folderCancelBtn);
+
     newFolderContainer.appendChild(folderForm);
+
+    newFolderContainer.style.display = "none";
 
     return document.getElementById("page-container").appendChild(newFolderContainer);
 })();

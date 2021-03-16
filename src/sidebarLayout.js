@@ -33,7 +33,12 @@ const sidebarLayout = (() => {
     projectsList.id = "project-list-options";
     projects.appendChild(projectsList);
 
+    const newProjectBtn = document.createElement('button');
+    newProjectBtn.id = "new-project-btn";
+    newProjectBtn.textContent = "New Project";
+
     categoryList.appendChild(projects);
+    categoryList.appendChild(newProjectBtn);
 
     currentTaskContainer.appendChild(categoryList);
 
