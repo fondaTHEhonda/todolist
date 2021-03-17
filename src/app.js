@@ -4,7 +4,6 @@ const Task = (title, desc, dueDate, priority, folder, complete = false) => {
     const getDesc = () => desc;
     const getDueDate = () => dueDate;
     const getPriority = () => priority;
-    this.complete = complete;
 
     return {getTitle, getDesc, getDueDate, getPriority, folder, complete}
 }
