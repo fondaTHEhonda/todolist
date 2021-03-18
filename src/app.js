@@ -10,10 +10,9 @@ const Task = (title, desc, dueDate, priority, folder, complete = false) => {
 
 //Constructor for creating new folders to organize tasks.
 const TaskFolder = (title) => {
-    let folder = [];
     const getTitle = () => title;
 
-    return {folder, getTitle}
+    return {getTitle}
 }
 
 export {Task, TaskFolder}
