@@ -1,79 +1,111 @@
+import {Task, TaskFolder} from "./app"
+import {setPriority} from "./formSubmission"
+
 //Form to add new task.
 const newTaskForm = (() => {
+    //Setting main variables to call on when creating new task. IIFE
     const formContainer = document.createElement('div');
-    formContainer.id = "form-container";
-    const taskForm = document.createElement('form');
-    taskForm.id = "new-task-form";
+        formContainer.id = "form-container";
+        const taskForm = document.createElement('form');
+        taskForm.id = "new-task-form";
 
-    const taskTitle = document.createElement('input');
-    taskTitle.type = "text";
-    taskTitle.placeholder = "New Task";
-    taskTitle.classList.add("form-content");
-    taskForm.appendChild(taskTitle);
+        const taskTitle = document.createElement('input');
+        taskTitle.type = "text";
+        taskTitle.placeholder = "New Task";
+        taskTitle.classList.add("form-content");
 
-    const taskDesc = document.createElement('input');
-    taskDesc.type = "text";
-    taskDesc.placeholder = "Description";
-    taskDesc.classList.add('form-content');
-    taskForm.appendChild(taskDesc);
+        const taskDesc = document.createElement('input');
+        taskDesc.type = "text";
+        taskDesc.placeholder = "Description";
+        taskDesc.classList.add('form-content');
 
-    const taskDueDate = document.createElement("input");
-    taskDueDate.type = "date";
-    taskDueDate.classList.add("form-content");
-    taskForm.appendChild(taskDueDate);
+        const taskDueDate = document.createElement("input");
+        taskDueDate.type = "date";
+        taskDueDate.classList.add("form-content");
 
-    const taskPriority = document.createElement('select');
-    taskPriority.name = "priority";
-    taskPriority.id = "priority-select";
-    taskPriority.classList.add('form-content');
+        const taskPriority = document.createElement('select');
+        taskPriority.name = "priority";
+        taskPriority.id = "priority-select";
+        taskPriority.classList.add('form-content');
 
-    const highPriority = document.createElement("option");
-    highPriority.value = "high";
-    highPriority.textContent = "High";
-    taskPriority.appendChild(highPriority);
+        const highPriority = document.createElement("option");
+        highPriority.value = "high";
+        highPriority.textContent = "High";
 
-    const mediumPriority = document.createElement('option');
-    mediumPriority.value = "medium";
-    mediumPriority.textContent = "Medium";
-    taskPriority.appendChild(mediumPriority);
+        const mediumPriority = document.createElement('option');
+        mediumPriority.value = "medium";
+        mediumPriority.textContent = "Medium";
 
-    const lowPriority = document.createElement("option");
-    lowPriority.value = "low";
-    lowPriority.textContent = "Low";
-    taskPriority.appendChild(lowPriority);
+        const lowPriority = document.createElement("option");
+        lowPriority.value = "low";
+        lowPriority.textContent = "Low";
 
-    taskForm.appendChild(taskPriority);
+        const selectFolder = document.createElement('select');
+        selectFolder.name = "folder";
+        selectFolder.classList.add('form-content');
+        selectFolder.id = "folder-select";
 
-    const selectFolder = document.createElement('select');
-    selectFolder.name = "folder";
-    selectFolder.id = "folder-select";
-    selectFolder.classList.add('form-content');
+        const testOption = document.createElement("option");
+        testOption.value = "test";
+        testOption.textContent = "Test";
 
-    const testOption = document.createElement("option");
-    testOption.value = "test";
-    testOption.textContent = "Test";
-    selectFolder.appendChild(testOption);
+        const taskSubmitBtn = document.createElement("button");
+        taskSubmitBtn.type = "submit";
+        taskSubmitBtn.classList.add('form-content');
+        taskSubmitBtn.id = "form-submit-btn";
+        taskSubmitBtn.textContent = "Submit";
 
-    taskForm.appendChild(selectFolder);
+        const taskCancelBtn = document.createElement('button');
+        taskCancelBtn.type = "button";
+        taskCancelBtn.classList.add('form-content');
+        taskCancelBtn.id = "form-cancel-btn";
+        taskCancelBtn.textContent = "Cancel";
 
+    //Appends elements together. Called as soon as page loads. Default is hidden.
+    function createForm() {
+        taskForm.appendChild(taskTitle);
+        taskForm.appendChild(taskDesc);
+        taskForm.appendChild(taskDueDate);
+        taskPriority.appendChild(highPriority);
+        taskPriority.appendChild(mediumPriority);
+        taskPriority.appendChild(lowPriority);
+        taskForm.appendChild(taskPriority);
+        selectFolder.appendChild(testOption);
+        taskForm.appendChild(selectFolder);
+        taskForm.appendChild(taskSubmitBtn);
+        taskForm.appendChild(taskCancelBtn);
+        formContainer.appendChild(taskForm);
 
-    const taskSubmitBtn = document.createElement("button");
-    taskSubmitBtn.type = "submit";
-    taskSubmitBtn.classList.add('form-content');
-    taskSubmitBtn.id = "form-submit-btn";
-    taskSubmitBtn.textContent = "Submit";
-    taskForm.appendChild(taskSubmitBtn);
+        document.getElementById("page-container").appendChild(formContainer)
+    }
+    //Helper function. Sets priority of task based on selected index of form.
+    const setPriority = (select) => {
+        if(select.selectedIndex = "0") {
+            return "High";
+        } else if(select.selectedIndex = "1") {
+            return "Medium";
+        } else {
+            return "Low";
+        }
+    }
 
-    const taskCancelBtn = document.createElement('button');
-    taskCancelBtn.type = "button";
-    taskCancelBtn.classList.add('form-content');
-    taskCancelBtn.id = "form-cancel-btn";
-    taskCancelBtn.textContent = "Cancel";
-    taskForm.appendChild(taskCancelBtn);
+    //Function for submit button event listener. Creates new task on submission.
+    function submitNewTask(e) {
+        e.preventDefault();
+        let newTask;
 
-    formContainer.appendChild(taskForm);
+        if(e.target.id === "form-submit-btn") {
+            newTask = Task(taskTitle.value, taskDesc.value, taskDueDate.value, setPriority(taskPriority));
+            console.log(newTask.title);
+            console.log(newTask.desc);
+            console.log(newTask.dueDate);
+            console.log(newTask.priority);
+            document.getElementById('form-container').style.display = "none";
+        }
+        
+    }
 
-    return document.getElementById("page-container").appendChild(formContainer);
+    return {submitNewTask, createForm}
 })();
 
 const newFolderForm = (() => {
