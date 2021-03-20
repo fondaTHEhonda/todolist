@@ -1,9 +1,3 @@
-//Constructor for creating individual tasks. 
-const Task = (title, desc, dueDate, priority, complete = false) => {
-
-
-    return {title, desc, dueDate, priority, complete}
-}
 
 //Constructor for creating new folders to organize tasks.
 const TaskFolder = (title) => {
@@ -21,6 +15,3 @@ const TaskFolder = (title) => {
 
     return {getTitle, getList, addToList, removeFromList, list}
 }
-
-
-export {Task, TaskFolder}
