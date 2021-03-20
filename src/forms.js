@@ -96,10 +96,6 @@ const newTaskForm = (() => {
 
         if(e.target.id === "form-submit-btn") {
             newTask = Task(taskTitle.value, taskDesc.value, taskDueDate.value, setPriority(taskPriority));
-            console.log(newTask.title);
-            console.log(newTask.desc);
-            console.log(newTask.dueDate);
-            console.log(newTask.priority);
             document.getElementById('form-container').style.display = "none";
         }
         

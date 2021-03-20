@@ -10,7 +10,6 @@ const sidebarLayout = (() => {
     home.classList.add("category-header");
     home.textContent = "Home";
     categoryList.appendChild(home);
-    
 
     const today = document.createElement('li');
     today.id = "today-category";
