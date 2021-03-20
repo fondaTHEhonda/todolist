@@ -1,5 +1,6 @@
-import {Task, TaskFolder} from "./app"
-import {setPriority} from "./formSubmission"
+import {Task} from "./task"
+import {TaskFolder, Home, Today, Upcoming, Completed} from "./folders"
+import { sidebarLayout } from "./sidebarLayout";
 
 //Form to add new task.
 const newTaskForm = (() => {
@@ -96,6 +97,9 @@ const newTaskForm = (() => {
 
         if(e.target.id === "form-submit-btn") {
             newTask = Task(taskTitle.value, taskDesc.value, taskDueDate.value, setPriority(taskPriority));
+            Home.list.push(newTask.title);
+            sidebarLayout.appendTasks(Home);
+            console.log(Home.list);
             document.getElementById('form-container').style.display = "none";
         }
         

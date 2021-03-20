@@ -1,4 +1,5 @@
-import {Task, TaskFolder} from "./app"
+import {Task} from "./task"
+import {TaskFolder, Home, Today, Upcoming, Completed} from "./folders"
 import {newTaskForm, newFolderForm} from "./forms"
 import {sidebarLayout} from "./sidebarLayout"
 import {openNewTaskForm, closeNewTaskForm, openNewFolder, closeNewFolder} from "./eventlisteners"
@@ -12,10 +13,9 @@ let b = Task("Gamma", "Beta Test", "1/1/2021", "Low",)
 let c = Task("Delta", "Beta Test", "1/1/2021", "Low",)
 let d = Task("Iota", "Beta Test", "1/1/2021", "Low",)
 let e = Task("Epsilon", "Beta Test", "1/1/2021", "Low",)
-const newFolder = TaskFolder("Test Folder");
-const newerFolder = TaskFolder("New Folder");
 
 newTaskForm.createForm();
+sidebarLayout.setDefaultContent();
 
 window.addEventListener('click', openNewTaskForm);
 window.addEventListener('click', closeNewTaskForm);

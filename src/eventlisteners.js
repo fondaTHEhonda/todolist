@@ -1,4 +1,5 @@
-import {Task, TaskFolder} from "./app"
+import {Task} from "./task"
+import {TaskFolder, Home, Today, Upcoming, Completed} from "./folders"
 import {newTaskForm, newFolderForm} from "./forms"
 import {sidebarLayout} from "./sidebarLayout"
 

@@ -15,3 +15,11 @@ const TaskFolder = (title) => {
 
     return {getTitle, getList, addToList, removeFromList, list}
 }
+
+//Creating default Folders
+const Home = TaskFolder("Home");
+const Today = TaskFolder("Today");
+const Upcoming = TaskFolder("Upcoming");
+const Completed = TaskFolder("Completed");
+
+export {TaskFolder, Home, Today, Upcoming, Completed}
