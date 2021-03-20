@@ -1,18 +1,26 @@
 //Constructor for creating individual tasks. 
-const Task = (title, desc, dueDate, priority, folder, complete = false) => {
-    const getTitle = () => title;
-    const getDesc = () => desc;
-    const getDueDate = () => dueDate;
-    const getPriority = () => priority;
+const Task = (title, desc, dueDate, priority, complete = false) => {
 
-    return {getTitle, getDesc, getDueDate, getPriority, folder, complete}
+
+    return {title, desc, dueDate, priority, complete}
 }
 
 //Constructor for creating new folders to organize tasks.
 const TaskFolder = (title) => {
-    const getTitle = () => title;
+    let list = [];
 
-    return {getTitle}
+    //Retrieve Info
+    const getTitle = () => title;
+    const getList = () => list;
+
+    //Change List    
+    const addToList = (task) => {
+        list.push(task.title);
+    }
+    const removeFromList = (task) => list.splice(list.indexOf(task.title), 1);
+
+    return {getTitle, getList, addToList, removeFromList, list}
 }
+
 
 export {Task, TaskFolder}
