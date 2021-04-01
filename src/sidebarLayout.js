@@ -56,7 +56,6 @@ const sidebarLayout = (() => {
     function appendTasks (folder) {
         
         folder.map(function(item) {
-            console.log(item);
             let li = document.createElement('li');
             li.appendChild(document.createTextNode(item));
             home.appendChild(li);

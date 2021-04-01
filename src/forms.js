@@ -99,7 +99,6 @@ const newTaskForm = (() => {
             newTask = Task(taskTitle.value, taskDesc.value, taskDueDate.value, setPriority(taskPriority));
             const newHome = Home.list.concat(newTask.title);
             sidebarLayout.appendTasks(newHome);
-            console.log(newHome);
             document.getElementById('form-container').style.display = "none";
         }
         
