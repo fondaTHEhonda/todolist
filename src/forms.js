@@ -97,9 +97,9 @@ const newTaskForm = (() => {
 
         if(e.target.id === "form-submit-btn") {
             newTask = Task(taskTitle.value, taskDesc.value, taskDueDate.value, setPriority(taskPriority));
-            Home.list.push(newTask.title);
-            sidebarLayout.appendTasks(Home);
-            console.log(Home.list);
+            const newHome = Home.list.concat(newTask.title);
+            sidebarLayout.appendTasks(newHome);
+            console.log(newHome);
             document.getElementById('form-container').style.display = "none";
         }
         

@@ -55,16 +55,19 @@ const sidebarLayout = (() => {
     //Helper function to add list of tasks to appropriate folder
     function appendTasks (folder) {
         
-        folder.list.forEach(function(item) {
+        folder.map(function(item) {
             console.log(item);
             let li = document.createElement('li');
             li.appendChild(document.createTextNode(item));
             home.appendChild(li);
-        })
-        
-    }
+    })
+    
+}
+
+    
     return {setDefaultContent, appendTasks}
 })();
+
 
 
 export {sidebarLayout}

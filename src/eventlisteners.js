@@ -1,8 +1,3 @@
-import {Task} from "./task"
-import {TaskFolder, Home, Today, Upcoming, Completed} from "./folders"
-import {newTaskForm, newFolderForm} from "./forms"
-import {sidebarLayout} from "./sidebarLayout"
-
 const openNewTaskForm = function (e) {
     if(e.target.id === "create-new-task") {
         document.getElementById('form-container').style.display = "block";
