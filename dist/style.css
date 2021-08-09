@@ -1,8 +1,7 @@
-#form-container {
-    display: none;
+li {
+    list-style-type: none;
 }
 
-#folder-form-container {
-    display: none;
+#folder-form, #task-form {
+    visibility: hidden;
 }
-
