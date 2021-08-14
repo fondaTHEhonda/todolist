@@ -1,6 +1,9 @@
+import { generateID } from "./helpers"
+
 class Folder {
-    constructor(title, tasks) {
+    constructor(title, id, tasks) {
         this.title = title,
+        this.id = generateID(),
         this.tasks = []
     }
 

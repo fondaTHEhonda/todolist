@@ -16,16 +16,32 @@ const hideFolderForm = () => {
     hideForm.addEventListener('click', () => folderForm.style.visibility = 'hidden')
 }
 
+const createDropdownOptions = () => {
+    const dropdown = document.querySelector('#folder-select').options
+    console.log(dropdown)
+
+    for(let i = dropdown.length - 1; i >= 0; i--) {
+        dropdown[i] = null
+    }
+
+    folderList.map(option => {
+            dropdown.add(new Option(option.title))
+    })
+}
+
 //Creating a new folder
 const folderFormSubmission = (event) => {
     event.preventDefault()
     let folderTitle = document.querySelector('#folder-title')
+    
 
     let newFolder = new Folder(folderTitle.value)
     folderList.push(newFolder)
     folderDisplay()
+    folderTitle.value = ''
     folderForm.style.visibility = 'hidden'
     console.log(folderList)
+    createDropdownOptions()
 }
 
 createFormBtn.addEventListener('click', folderFormSubmission)
@@ -39,4 +55,4 @@ function folderDisplay() {
     })
 }
 
-export { displayFolderForm, hideFolderForm, createFormBtn }
+export { displayFolderForm, hideFolderForm, createFormBtn, folderList, createDropdownOptions }

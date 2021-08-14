@@ -24,15 +24,18 @@
                 <form>
                     Folder Name: <input name='folder-title' id='folder-title' required>
                     <button id='submit-folder'>Create</button>
-                    <button id='cancel-folder'>Cancel</button>
+                    <button type='button' id='cancel-folder'>Cancel</button>
                 </form>
             </div>
             <div id='task-form'>
                 <form>
-                    Title: <input name='task-title'>
-                    Description: <input name='task-description'>
-                    Due Date: <input name='task-due-date' type='date'>
-                    Priority: <input name='task-priority-high' type='radio'>High <input name='task-priority-low' type='radio'>Low
+                    Title: <input id='task-title' name='task-title'>
+                    Description: <input id='task-description' name='task-description'>
+                    Due Date: <input id='task-due-date' name='task-due-date' type='date'>
+                    Priority: <input id='task-priority-high' name='task-priority-high' type='radio'>High <input id='task-priority-low' name='task-priority-low' type='radio'>Low
+                    Folder <select id='folder-select'></select>
+                    <button id='submit-task'>Create</button>
+                    <button type='button' id='cancel-task'>Cancel</button>
                 </form>
             </div>
         </div>
