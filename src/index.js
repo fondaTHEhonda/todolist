@@ -1,7 +1,7 @@
 import Task from "./task"
 import Folder from "./folder"
-import { displayFolderForm, hideFolderForm, folderDisplay, folderList, createDropdownOptions } from "./folderDOM"
-import { displayTaskForm, hideTaskForm, createTaskBtn } from "./taskDOM"
+import { displayFolderForm, hideFolderForm, folderList, createDropdownOptions, folderTaskDisplay } from "./folderDOM"
+import { displayTaskForm, hideTaskForm } from "./taskDOM"
 
 
 const testTask = new Task('Test', 'This is a test', Date.now(), 'high')
@@ -18,6 +18,7 @@ folderList.push(testFolder)
 
 console.log(folderList)
 
+folderTaskDisplay()
 displayFolderForm()
 hideFolderForm()
 displayTaskForm()

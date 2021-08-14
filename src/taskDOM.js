@@ -1,5 +1,5 @@
 import Task from "./task"
-import { folderList } from './folderDOM'
+import { folderList, dropdown, folderTaskDisplay } from './folderDOM'
 
 const taskForm = document.querySelector('#task-form')
 const createTaskBtn = document.querySelector('#submit-task')
@@ -21,6 +21,9 @@ const taskFormSubmission = (event) => {
     let taskDueDate = document.querySelector('#task-due-date').value
     let taskHighPriority = document.querySelector('#task-priority-high')
     let taskLowPriority = document.querySelector('#task-priority-low')
+    let selectedFolder = dropdown[dropdown.selectedIndex].innerHTML
+    let matchingFolder = folderList.find(index => index.title === selectedFolder)
+    let taskFolder = matchingFolder.id
     let taskPriority
 
     if(taskHighPriority.checked) {
@@ -29,14 +32,16 @@ const taskFormSubmission = (event) => {
         taskPriority = 'low'
     }
 
-    let newTask = new Task(taskTitle, taskDescription, taskDueDate, taskPriority)
-    console.log(newTask)
+    let newTask = new Task(taskTitle, taskDescription, taskDueDate, taskPriority, taskFolder)
+    matchingFolder.addTask(newTask)
+    console.log(newTask, matchingFolder)
     taskTitle = ''
     taskDescription = ''
     taskDueDate = ''
     taskHighPriority = ''
     taskLowPriority = ''
     taskForm.style.visibility = 'hidden'
+    folderTaskDisplay()
 }
 
 createTaskBtn.addEventListener('click', taskFormSubmission)

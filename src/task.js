@@ -1,11 +1,12 @@
 import { generateID } from "./helpers"
 
 class Task {
-    constructor(title, description, dueDate, priority, id, complete = false) {
+    constructor(title, description, dueDate, priority, folderID, id, complete = false) {
         this.title = title,
         this.description = description,
         this.dueDate = dueDate,
         this.priority = priority,
+        this.folderID = folderID,
         this.id = generateID(),
         complete
     }

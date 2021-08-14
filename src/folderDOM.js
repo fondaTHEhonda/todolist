@@ -4,6 +4,7 @@ let folderList = []
 
 const folderForm = document.querySelector('#folder-form')
 const createFormBtn = document.querySelector('#submit-folder')
+const dropdown = document.querySelector('#folder-select').options
 
 //Shows and hides display form
 const displayFolderForm = () => {
@@ -17,7 +18,6 @@ const hideFolderForm = () => {
 }
 
 const createDropdownOptions = () => {
-    const dropdown = document.querySelector('#folder-select').options
     console.log(dropdown)
 
     for(let i = dropdown.length - 1; i >= 0; i--) {
@@ -55,4 +55,16 @@ function folderDisplay() {
     })
 }
 
-export { displayFolderForm, hideFolderForm, createFormBtn, folderList, createDropdownOptions }
+function folderTaskDisplay() {
+    document.querySelector('#tasklist').innerHTML = ''
+    folderList.map(index => {
+        index.tasks.map( task => {
+            const taskPreview = document.createElement('li')
+            taskPreview.innerHTML = task.title
+            document.querySelector('#tasklist').appendChild(taskPreview)
+        })
+        
+    })
+}
+
+export { displayFolderForm, hideFolderForm, createFormBtn, folderList, createDropdownOptions, dropdown, folderTaskDisplay }
